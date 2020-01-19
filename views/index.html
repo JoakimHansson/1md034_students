@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 
-    <title>Burges by Skoob</title>
+    <title>Skooens Burgerstore Online</title>
     <meta charset="utf-8"/>
 
   </head>
@@ -10,7 +10,7 @@
   <body>
 
     <main>
-      <h1>Welcome to BurgerBySkoob</h1>
+      <h1>Welcome to Skoobens Burgerstore</h1>
     </main>
 
     <section>
@@ -66,7 +66,7 @@
       <h3>Delivery information</h3>
       <p>
 	<label for="fullname">Full name</label><br>
-	<input type="text" id="fullname" name="fn" required="required" placeholder="First- and Last name" />
+	<input type="text" id="fullname" name="fn" required="required" placeholder="First- and Last name" maxlength=30 />
       </p>
       <p>
 	<label for="email">E-mail</label><br>
@@ -74,16 +74,16 @@
       </p>
       <p>
 	<label for="street">Street</label><br>
-	<input type="text" id="street" name="st" required="required" placeholder="Street name" />
+	<input type="text" id="street" name="st" required="required" placeholder="Street name" maxlength=30/>
       </p>
       <p>
 	<label for="house">House</label><br>
-	<input type="number" id="house" name="ho" required="required" placeholder="House number" />
+	<input type="number" id="house" name="ho" required="required" placeholder="House number" maxlength=6/>
       </p>
 
       <p>
-	<label for="payment">Payment option</label><br />
-	<select id="recipient" name="rcp" selected="Swish">
+	<label for="payment">Choose Payment</label><br />
+	<select id="payment" name="pay" selected="Swish">
           <option>Swish</option>
           <option>Bank transfer</option>
           <option>Credit card</option>
@@ -91,6 +91,14 @@
 	</select>
       </p>
 
+      <p>
+	<form>
+	  <labelfor="gender">Choose Gender</label><br />
+	  <input type="radio" name="gender" value="male"> Male<br>
+	  <input type="radio" name="gender" value="female"checked> Female<br>
+	  <input type="radio" name="gender" value="other"> Other
+	</form>
+      </p>
     </section>
 
   </body>
