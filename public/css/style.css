@@ -30,17 +30,17 @@ body {
 
 #titleID {
     position: absolute;
-    padding-left: 22%;
-    margin-top: -1180px;
+    padding-left: 21%;
+    margin-top: -480px;
     font-size: 3.0em;
-		    
+    color: #000000;
 		    
 }
 
 #headingIMG {
-    opacity: 0.6;
+    opacity: 0.9;
     hight: auto;
-    width: 100%
+    width: 100%;    
 }
 
 
@@ -79,5 +79,6 @@ main {
      font-size: 150%;
 }
 
-.name_1 {
+.desc {
+    font-size: 25px;
 }
