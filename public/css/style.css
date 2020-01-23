@@ -12,10 +12,13 @@ body {
 #menuID {
     background-color: #000000;
     color: #FFFFFF;
+    border: 2px dashed #FFFFFF;
+    padding: 10px;
 }
 
 #informationID {
-
+    border: 2px dashed #000000;
+    padding: 10px;
 }
 
 
