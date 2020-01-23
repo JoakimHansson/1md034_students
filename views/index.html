@@ -8,8 +8,7 @@
 
   </head>
   <body>
-    <main id="mainID">
-      
+    <main id="mainID">      
       <img id="headingIMG" src="https://mitti.se/images/619986-650x.jpeg">           
       <h1 id="titleID">Welcome to Skoobens Burgerstore</h1>     
     </main>
@@ -17,55 +16,48 @@
     <section id="menuID">
       <h2>Choose your burger</h2>
       <p>Please pick a delicious burger</p>
-
-      <table>
-	<thead>
-	  <tr>
-	    <th>Standard Menu</th>
-	    <th>Kids Menu</th>
-	    <th>Hangover Menu</th>
-	  </tr>
-	</thead>
-	<tbody>
-	  <tr>
-	    <td><img src="https://assets.bonappetit.com/photos/57acee2d1b33404414975356/16:9/w_1028,c_limit/lamb-bacon-burgers-with-spicy-aioli.jpg" alt="Span" title="Another in-line element" width="300"></td>
-	    <td><img src="https://boyeatsworld.com.au/wp-content/uploads/2016/10/DSC_0090.jpg" alt="Span" title="Another in-line element" width="300"></td>
-	    <td><img src="https://prod-wolt-venue-images-cdn.wolt.com/5c76a5d396ee8a000d8a35d8/ede3030af9a544ad314545c6f03d1f0c" alt="Span" title="Another in-line element" width="300"></td>
-	  </tr>
-	  <tr>
-	    <td>
-	      <ul>
-		<li>A normal burger</li>
-		<li>1200 kCal</li>
-		<section class="allergy">
-		  <li>Contains gluten</li>
-		</section>
-	      </ul>
-	    </td>
-	    <td>
-	      <ul>
-		<li>Monster burger</li>
-		<li>800 kCal</li>
-		<section class="allergy">
-		  <li>May cause nightmares</li>
-		</section>
-	      </ul>
-	    </td>
-	    <td>
-	      <ul>
-		<li>The ultimate burger</li>
-		<li>4500 kCal</li>
-		<section class="allergy">
-		<li>Cure even the worst hangover</li>
-		</section>
-	      </ul>
-	    </td>
-	  </tr>
-	</tbody>
-      </table>
-
+      <div class="burgers">	
+	<div class="box name_1">
+	  <h4>Standard Menu</h4>
+	</div>
+	<div class="box name_2">
+	  <h4>Kids Menu</h4>
+	</div>
+	<div class="box name_3">
+	  <h4>Hangover Menu</h4>
+	</div>
+	<div class="box img_1">
+	  <img src="https://assets.bonappetit.com/photos/57acee2d1b33404414975356/16:9/w_1028,c_limit/lamb-bacon-burgers-with-spicy-aioli.jpg" alt="Span" title="menu-1" width="300">
+	</div>
+	<div class="box img_2">
+	  <img src="https://boyeatsworld.com.au/wp-content/uploads/2016/10/DSC_0090.jpg" alt="Span" title="menu-2" width="300">
+	</div>
+	<div class="box img_3">
+	  <td><img src="https://prod-wolt-venue-images-cdn.wolt.com/5c76a5d396ee8a000d8a35d8/ede3030af9a544ad314545c6f03d1f0c" alt="Span" title="menu-3" width="300">
+	</div>
+	<div class="box desc_1">
+	  <ul>
+	    <li>A normal burger</li>
+	    <li>1200 kCal</li>
+	      <li>Contains <span class="allergy">gluten</span></li>
+	  </ul>	  
+	</div>
+	<div class="box desc_2">
+	  <ul>
+	    <li>Monster burger</li>
+	    <li>800 kCal</li>
+	    <li><span class="allergy">May cause nightmares</span></li>
+	  </ul>	  
+	</div>
+	<div class="box desc_3">
+	  <ul>
+	    <li>The ultimate burger</li>
+	    <li>4500 kCal</li>
+	    <li><span class="allergy">Cure hangovers</span></li>
+	  </ul>	      
+	</div>
+      </div>           
     </section>
-
     <section id="informationID">
       <h2>Customer information</h2>
       <p>This is where you provide necessary information</p>
