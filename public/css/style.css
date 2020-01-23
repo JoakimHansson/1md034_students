@@ -21,12 +21,24 @@ body {
     padding: 10px;
 }
 
-#headingID {
-    margin: 10px
+#mainID {
+    margin: 10px;
+    height: 300px;
+    overflow: hidden;
+}
+
+
+#titleID {
+    position: absolute;
+    padding-left: 20%;
+    margin-top: -720px
+		    
 }
 
 #headingIMG {
-    opacity: 0.8;
+    opacity: 0.6;
+    hight: auto;
+    width: 100%
 }
 
 
