@@ -21,6 +21,14 @@ body {
     padding: 10px;
 }
 
+#headingID {
+    margin: 10px
+}
+
+#headingIMG {
+    opacity: 0.8;
+}
+
 
 button{
     margin: 10px;
