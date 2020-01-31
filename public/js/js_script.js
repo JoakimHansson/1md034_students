@@ -17,6 +17,18 @@ let menu4 = new menuItem('Maxim special', 'Billig och slibbig', 2000, 'Contains 
 let menu5 = new menuItem('Spicy death', 'You will burn', 1300, 'Contains chili');
 
 
+let container = document.getElementById("containerID");
+
+let title = document.getElementById("titleID");
+title.innerHTML="Välj en burgare!!"
+
+let menuList = container.getElementsByTagName("p");
+menuList[0].innerHTML=menu1.info();
+menuList[1].innerHTML=menu2.info();
+menuList[2].innerHTML=menu3.info();
+menuList[3].innerHTML=menu4.info();
+menuList[4].innerHTML=menu5.info();
+
 console.log(menu1.info());
 console.log(menu2.info());
 console.log(menu3.info());
