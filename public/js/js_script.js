@@ -14,20 +14,28 @@ let menu1 = new menuItem('Standard menu', 'The normal burger', 1200, 'Contains g
 let menu2 = new menuItem('Kids menu', 'The Monster burger', 800, 'May cause nightmares');
 let menu3 = new menuItem('Hangover menu', 'The Ultimater burger', 4500, 'Cure hangovers');
 let menu4 = new menuItem('Maxim special', 'Billig och slibbig', 2000, 'Contains matförgiftning');
-let menu5 = new menuItem('Spicy death', 'You will burn', 1300, 'Contains chili');
+let menu5 = new menuItem('Spicy death', 'You will burn', 1300, 'Contains gluten');
 
+let burgers = [menu1, menu2, menu3, menu4, menu5];
 
 let container = document.getElementById("containerID");
-
-let title = document.getElementById("titleID");
-title.innerHTML="Välj en burgare!!"
-
-let menuList = container.getElementsByTagName("p");
-menuList[0].innerHTML=menu1.info();
-menuList[1].innerHTML=menu2.info();
-menuList[2].innerHTML=menu3.info();
-menuList[3].innerHTML=menu4.info();
-menuList[4].innerHTML=menu5.info();
+for (let burger in burgers)
+{
+	
+  let listItem = document.createElement("li");
+  let listValue;
+    if (burgers[burger].allergy == "Contains gluten")
+    {
+       listValue = document.createTextNode(burgers[burger].info() + ' ' + burgers[burger].allergy);
+    }
+    else
+    {
+    	listValue = document.createTextNode(burgers[burger].info());
+    }
+    
+    listItem.appendChild(listValue);
+    container.appendChild(listItem);
+}
 
 console.log(menu1.info());
 console.log(menu2.info());
