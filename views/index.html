@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>    
+    <script type="text/javascript" src="js/menu.js"></script>
     <!-- <script src="js/js_script.js" defer></script> -->
     <script src="https://vuejs.org/js/vue.js"></script>
     <script src="js/vue_script.js" defer></script>
@@ -24,9 +25,9 @@
 	  <img :src="burger.img" alt="Span" title="menu-3" width="300">
 	  <ul>
 	    <li>{{burger.desc}}</li>
-	    <li>{{burger.kcal}} kcal</li>
-	    <li v-if="burger.allergy === 'Contains gluten'" class="allergy">{{burger.allergy}}</li>
-	    <li v-else> {{burger.allergy}}</li>
+	    <li>{{burger.kCal}} kCal</li>
+	    <li v-if="burger.lactose" class="allergy">Contains lactose</li>
+	    <li v-if="burger.gluten" class="allergy">Contains gluten</li>
 	  </ul>
 	</div>
       </div>           
