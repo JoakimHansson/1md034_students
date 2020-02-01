@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>    
-    <script src="js/js_script.js" defer></script>
-    <!-- <script src="https://vuejs.org/js/vue.js"></script> -->
-    <!-- <script src="js/js_vue.js"></script>  -->
+    <!-- <script src="js/js_script.js" defer></script> -->
+    <script src="https://vuejs.org/js/vue.js"></script>
+    <script src="js/vue_script.js" defer></script>
     <!-- <link rel="stylesheet" type="text/css" href="/css/reset.css"> -->
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <title>Skoobens Burgerstore Online</title>
@@ -19,6 +19,16 @@
     <p>Please pick a delicious burger</p>
     <section id="menuID">      
       <div id="menuContainerID" class="menuContainer">
+	<div v-for="burger in burgers">
+	  <h1>{{burger.name}}</h1>
+	  <img :src="burger.img" alt="Span" title="menu-3" width="300">
+	  <ul>
+	    <li>{{burger.desc}}</li>
+	    <li>{{burger.kcal}} kcal</li>
+	    <li v-if="burger.allergy === 'Contains gluten'" class="allergy">{{burger.allergy}}</li>
+	    <li v-else> {{burger.allergy}}</li>
+	  </ul>
+	</div>
       </div>           
     </section>
     
