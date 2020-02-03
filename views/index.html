@@ -2,7 +2,7 @@
 <html lang="en">
   <head>    
     <script type="text/javascript" src="js/menu.js"></script>
-    <!-- <script src="js/js_script.js" defer></script> -->
+    <script src="js/js_script.js" defer></script>
     <script src="https://vuejs.org/js/vue.js"></script>
     <script src="js/vue_script.js" defer></script>
     <!-- <link rel="stylesheet" type="text/css" href="/css/reset.css"> -->
@@ -16,11 +16,13 @@
       <img id="headingIMG" src="https://cdn.pixabay.com/photo/2016/07/31/16/24/banner-1559399_960_720.jpg">           
       <h1 id="titleID">Welcome to Skoobens Burgerstore</h1>     
     </main>
+    <div id="box2ID">
     <h2>Choose your burger</h2>
     <p>Please pick a delicious burger</p>
+    </div>
     <section id="menuID">      
       <div id="menuContainerID" class="menuContainer">
-	<div v-for="burger in burgers">
+	<div id="burgersID" v-for="burger in burgers">
 	  <h1>{{burger.name}}</h1>
 	  <img :src="burger.img" alt="Span" title="menu-3" width="300">
 	  <ul>
@@ -29,35 +31,36 @@
 	    <li v-if="burger.lactose" class="allergy">Contains lactose</li>
 	    <li v-if="burger.gluten" class="allergy">Contains gluten</li>
 	  </ul>
+	  <input type="checkbox" name="checkbox"><br>
 	</div>
       </div>           
     </section>
     
-    <section id="informationID">
+    <section id="ordersID">
       <h2>Customer information</h2>
       <p>This is where you provide necessary information</p>
 
       <h3>Delivery information</h3>
       <p>
 	<label for="fullname">Full name</label><br>
-	<input type="text" id="fullname" name="fn" required="required" placeholder="First- and Last name" maxlength=30 />
+	<input type="text" id="fullname" name="fn" required="required" placeholder="First- and Last name" v-model="fullname" maxlength=30 />
       </p>
       <p>
 	<label for="email">E-mail</label><br>
-	<input type="email" id="email" name="em" required="required" placeholder="E-mail address" />
+	<input type="email" id="email" name="em" required="required" placeholder="E-mail address" v-model="email" />
       </p>
       <p>
 	<label for="street">Street</label><br>
-	<input type="text" id="street" name="st" required="required" placeholder="Street name" maxlength=30/>
+	<input type="text" id="street" name="st" required="required" placeholder="Street name" v-model="street" maxlength=30/>
       </p>
       <p>
 	<label for="house">House</label><br>
-	<input type="number" id="house" name="ho" required="required" placeholder="House number" maxlength=6/>
+	<input type="number" id="house" name="ho" required="required" placeholder="House number" v-model="house" maxlength=6/>
       </p>
 
       <p>
 	<label for="payment">Choose Payment method</label><br />
-	<select id="payment" name="pay" selected="Swish">
+	<select id="payment" name="pay" v-model="payment" selected="Swish">
           <option>Swish</option>
           <option>Bank transfer</option>
           <option>Credit card</option>
@@ -66,14 +69,30 @@
       </p>
 
       <p>
-	  <label for="gender">Choose Gender</label><br />
-	  <input type="radio" name="gender" value="male"> Male<br>
-	  <input type="radio" name="gender" value="female"checked> Female<br>
-	  <input type="radio" name="gender" value="other"> Other
+	  <label id="genderID" for="gender">Choose Gender</label><br />
+	  <input id="maleID" type="radio" name="gen" value="male" v-model="gender"> Male<br>
+	  <input id="femaleID" type="radio" name="gen" value="female" v-model="gender"> Female<br>
+	  <input id="otherID" type="radio" name="gen" value="other" v-model="gender"> Other
       </p>
+      <button id="orderButtonID" v-on:click="markDone()">Place order!</button>
+
+      <div id="orderID"> 
+	<div v-show="placedOrder" class="order">
+	  <h3>Thank you for your order!</h3>
+	  
+	  <h4>Delivery information:</h4>
+	  <p>Name: {{customerInfo[0]}}</p>
+	  <p>Email: {{customerInfo[1]}}</p>
+	  <p>Address: {{customerInfo[2]}} {{customerInfo[3]}}</p>
+	  <p>Payment method: {{customerInfo[4]}}</p>
+	  <p>Gender: {{customerInfo[5]}}</p>
+	  <h4>Your order:</h4>
+	  <div v-for="name in orderInfo">
+	    <p>{{name}}</p>
+	  </div>
+	</div>
+      </div>
     </section>
-    <!-- <form><input type="submit" value="Place order!" /></form> -->
-    <form><button>Place order!</button></form>
   </body>
 
   <footer><p>&copy; 2020 SkoobensBurgerstoreOnline.com<p></footer>

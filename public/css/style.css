@@ -16,8 +16,15 @@ body {
     padding: 10px;
 }
 
-#informationID {
+#ordersID {
     border: 2px dashed #000000;
+    padding: 10px;
+}
+
+.order {
+    background-color: #000000;
+    color: #FFFFFF;
+    border: 2px dashed #FFFFFF;
     padding: 10px;
 }
 
@@ -34,8 +41,13 @@ body {
     margin-top: -480px;
     font-size: 3.0em;
     color: #000000;
-		    
+    
 }
+
+#box2ID {
+    margin: 10px;
+}
+
 
 #headingIMG {
     opacity: 0.9;

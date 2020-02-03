@@ -1,3 +1,37 @@
+// let orderButton = document.getElementById('orderButtonID');
+
+// function getOrderInformation(){
+    
+//     var fname = document.getElementById("fullname").value;    
+//     var email = document.getElementById("email").value;
+//     var street = document.getElementById("street").value;
+//     var house = document.getElementById("house").value;
+//     var payment = document.getElementById("payment").value;
+//     var gender;
+
+//     if(document.getElementById("maleID").checked)
+//     {
+// 	gender = document.getElementById("maleID").value;
+//     }
+//     else if(document.getElementById("femaleID").checked)
+//     {
+// 	gender = document.getElementById("femaleID").value;
+//     }
+//     else{
+// 	gender = document.getElementById("otherID").value;
+//     }
+
+//     return [fname, email, street, house, payment, gender];
+   
+// }
+
+// orderButton.onclick = function () {
+//     console.log(getOrderInformation());
+//     console.log("Order placed!");
+
+// }
+
+
 // function menuItem(name, desc, kcal, allergy) {
 //     this.name = name; // The this keyword refers to the object itself
 //     this.desc = desc;
