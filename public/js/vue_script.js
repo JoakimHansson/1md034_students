@@ -6,56 +6,59 @@ const socket = io();
 
 /* eslint-disable-next-line no-unused-vars */
 const vm = new Vue({
-  el: '#dots',
-  data: {
-    orders: {},
-  },
-  created: function() {
-    /* When the page is loaded, get the current orders stored on the server.
-     * (the server's code is in app.js) */
-    socket.on('initialize', function(data) {
-      this.orders = data.orders;
-    }.bind(this));
+    el: '#dots',
+    data: {
+	orders: {},
+	order: {
+	    details: { x:0 , y:0 },
+	    orderId: "",
+	    orderItems: [],
+	    offset: { x: 0, y: 0},
+	},
+	counter: 0,
+    },
+  
+    methods: {
+	getNext: function() {
+	    /* This function returns the next available key (order number) in
+	     * the orders object, it works under the assumptions that all keys
+	     * are integers. */
+	    vm.counter += 1;
+	    return vm.counter;
+	},
+	addOrder: function() {
+	    /* When you click in the map, a click event object is sent as parameter
+	     * to the function designated in v-on:click (i.e. this one).
+	     * The click event object contains among other things different
+	     * coordinates that we need when calculating where in the map the click
+	     * actually happened. */
 
-    /* Whenever an addOrder is emitted by a client (every open map.html is
-     * a client), the server responds with a currentQueue message (this is
-     * defined in app.js). The message's data payload is the entire updated
-     * order object. Here we define what the client should do with it.
-     * Spoiler: We replace the current local order object with the new one. */
-    socket.on('currentQueue', function(data) {
-      this.orders = data.orders;
-    }.bind(this));
-  },
-  methods: {
-    getNext: function() {
-      /* This function returns the next available key (order number) in
-       * the orders object, it works under the assumptions that all keys
-       * are integers. */
-      let lastOrder = Object.keys(this.orders).reduce(function(last, next) {
-        return Math.max(last, next);
-      }, 0);
-      return lastOrder + 1;
+	    socket.emit('addOrder', {
+		orderId: this.getNext(),
+		details: vm.order.details,
+		orderItems: hiddenVm.orderInfo,
+	    });
+	},
+	displayOrder: function(event) {
+	    /* When you click in the map, a click event object is sent as parameter
+	     * to the function designated in v-on:click (i.e. this one).
+	     * The click event object contains among other things different
+	     * coordinates that we need when calculating where in the map the click
+	     * actually happened. */
+	    let offset = {
+		x: event.currentTarget.getBoundingClientRect().left,
+		y: event.currentTarget.getBoundingClientRect().top,
+	    };
+	    vm.order.details = {
+		x: event.clientX - 10 - offset.x,
+		y: event.clientY - 10 - offset.y,
+	    },
+	    
+	    vm.order.orderId = "T",
+	    vm.order.orderItems = ['Beans', 'Curry']
+	    
+	},
     },
-    addOrder: function(event) {
-      /* When you click in the map, a click event object is sent as parameter
-       * to the function designated in v-on:click (i.e. this one).
-       * The click event object contains among other things different
-       * coordinates that we need when calculating where in the map the click
-       * actually happened. */
-      let offset = {
-        x: event.currentTarget.getBoundingClientRect().left,
-        y: event.currentTarget.getBoundingClientRect().top,
-      };
-      socket.emit('addOrder', {
-        orderId: this.getNext(),
-        details: {
-          x: event.clientX - 10 - offset.x,
-          y: event.clientY - 10 - offset.y,
-        },
-        orderItems: ['Beans', 'Curry'],
-      });
-    },
-  },
 });
 
 
@@ -73,11 +76,9 @@ const infoVm = new Vue({
 	email: "joakim.hansson92@gamil.com",
 	payment: "Swish",
 	gender: "",
-	customerInfo: [1],
-	orderInfo: [],
 
-	}
-    });
+    }
+});
 
 const buttonVm = new Vue({
     el: '#orderButtonID',
@@ -91,7 +92,7 @@ const buttonVm = new Vue({
 	    }
 	    
 	    var information = [infoVm.fullname, infoVm.email, infoVm.payment, infoVm.gender];
-	  
+	    
 
 	    var checked = [];
 	    var searchMenu = document.getElementById("menuContainerID").children;
@@ -113,7 +114,11 @@ const buttonVm = new Vue({
 	    console.log(hiddenVm.placedOrder);
 	    
     	    return information;
-     	}
+     	},
+	addOrder: function() {
+	    	    console.log("KUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUK");
+	    vm.addOrder();
+	}
     }});
 
 const hiddenVm = new Vue({
