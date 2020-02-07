@@ -13,7 +13,8 @@ const vm = new Vue({
 	    details: { x:0 , y:0 },
 	    orderId: "",
 	    orderItems: [],
-	    offset: { x: 0, y: 0},
+	    customerInfo: [],
+	    offset: { x: 0, y: 0}
 	},
 	counter: 0,
     },
@@ -37,6 +38,7 @@ const vm = new Vue({
 		orderId: this.getNext(),
 		details: vm.order.details,
 		orderItems: hiddenVm.orderInfo,
+		customerInfo: hiddenVm.customerInfo
 	    });
 	},
 	displayOrder: function(event) {
@@ -54,8 +56,7 @@ const vm = new Vue({
 		y: event.clientY - 10 - offset.y,
 	    },
 	    
-	    vm.order.orderId = "T",
-	    vm.order.orderItems = ['Beans', 'Curry']
+	    vm.order.orderId = "T"
 	    
 	},
     },
@@ -110,13 +111,11 @@ const buttonVm = new Vue({
 	    hiddenVm.customerInfo = information;
 	    hiddenVm.orderInfo = checked;
 	    hiddenVm.placedOrder = true;
-
-	    console.log(hiddenVm.placedOrder);
 	    
     	    return information;
      	},
 	addOrder: function() {
-	    	    console.log("KUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUK");
+
 	    vm.addOrder();
 	}
     }});

@@ -106,7 +106,7 @@ body {
 
 .view-box {
 	width: 90%;
-	height: 50vh;
+	height: 70vh;
 	margin: 1em auto;
 	overflow: scroll;
 	border: 1px solid rgba(0,0,0,0.4);
